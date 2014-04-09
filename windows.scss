@@ -1,0 +1,23 @@
+html, body{
+    margin:0;
+    padding:0;
+}
+
+$backgroundObscuro:	#2c3e50;
+$backgroundClaro: 	#34485e;
+
+
+$colors: $backgroundObscuro, $backgroundClaro, $backgroundObscuro, $backgroundClaro, $backgroundObscuro, $backgroundClaro, $backgroundObscuro, $backgroundClaro, $backgroundObscuro, $backgroundClaro, $backgroundObscuro;
+
+.window{
+    width:100%;
+    height:100%;
+    position:absolute;
+}
+
+@for $i from 1 through 11{
+    .window:nth-child(#{$i}){
+        background:nth($colors, $i);
+        top:($i - 1) * 100%;
+    }
+}

@@ -49,27 +49,15 @@ figure {margin: 0;}
 
 /*** FONTFACE ***/
 
-@font-face {
-  font-family: 'font';
-  src:  url('fonts/font.eot');
-  src:  url('fonts/font.eot?#iefix') format('embedded-opentype'),
-		url('fonts/font.woff') format('woff'),
-		url('fonts/font.ttf') format('truetype'),
-		url('fonts/font.svg#font') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
 
 /*** VARIABLES ***/
 
-@claro: 	#fff;
-@highlight:	#1aa2dc;
+@claro: 			#fff;
+@highlight:			#f1c40d;
+@backgroundObscuro:	#2c3e50;
+@backgroundClaro: 	#34485e;
 
-@twitter:     #2aa8df;
-@facebook:    #3c5a97;
-@pinterest:   #c92027;
-@gplus:     #dd4b39;
-@linkedin:    #007bb6;
+@gris: 				#bdc3c7;
 
 @warning:     #e74c3c;
 
@@ -77,7 +65,7 @@ figure {margin: 0;}
 
 /*** MIXINS ***/
 
-.font( @size: 14px, @line: 18px, @family: 'font'){
+.font( @size: 14px, @line: 18px, @family: 'Open Sans' sans-serif){
 	font: @size / @line @family;
 }
 
@@ -201,6 +189,44 @@ p{ margin-bottom: 1em; }
 ::-moz-selection { background: @highlight; color: @claro; }
 
 body{ background: #fff; .font; }
+
+.card{ width: 64.4%; margin-top: -14%; margin-left: -33%; .border-radius; background: @gris; position: absolute; top: 50%; left: 50%;
+
+	.content{ width: 83%; height: 100%; padding: @margen; .border-radiuses ( 0, 0, 4px, 4px); background: @claro; float: left;
+
+		.posicion{ width: 12%; float: left; background: @highlight; }
+
+		h2{ width: 86%; margin: 0; line-height: normal; float: right; }
+
+		p{ margin: (@margen/2) 0 0 0; }
+
+	}
+
+	.sidebar{ width: 17%; padding: @margen; .border-radiuses ( 4px, 4px, 0, 0 ); background: @gris; float: left; }
+
+}
+
+.circulo{ width: 100%; .border-radius(50%);
+
+	&.posicion{
+		p{ margin: 0; font-size: 2em; font-weight: 600; text-align: center; color: @claro; }
+	}
+
+	&.autor, &.votos, &.votar{ border: 1px solid @claro; margin: 0 auto @margen auto; }
+
+	&.autor{
+		img{ display: block; width: 90%; height: auto; margin: 5% auto 0 auto; border-radius: (50%); }
+	}
+
+	&.votos{
+		p{ margin: 0; font-size: 1.6em; font-weight: 600; text-align: center; color: @claro; }
+	}
+
+	&.votar{
+		i{ width: 100%; font-size: 1.3em; text-align: center; color: @claro; }
+	}
+
+}
 
 /*** HEADER ***/
 

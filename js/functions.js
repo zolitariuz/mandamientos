@@ -4,28 +4,73 @@
 
 	$(function(){
 
-		/**
-		 * Validación de emails
-		 */
-		window.validateEmail = function (email) {
-			var regExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			return regExp.test(email);
-		};
+		//Windows JS
+		$('.window').windows({
+	        snapping: true,
+	        snapSpeed: 200,
+	        snapInterval: 500,
+	        onScroll: function(scrollPos){
+	            // scrollPos:Number
+	        },
+	        onSnapComplete: function($el){
+	            // after window ($el) snaps into place
+	        },
+	        onWindowEnter: function($el){
+	            // when new window ($el) enters viewport
+	        }
+	    });
 
+	    //Fittext
+	    $('h2').fitText(1.6);
 
+	    $('.votos p').fitText(0.35);
 
-		/**
-		 * Regresa todos los valores de un formulario como un associative array
-		 */
-		window.getFormData = function (selector) {
-			var result = [],
-				data   = $(selector).serializeArray();
+		$('.circulo').each( function(){
+			var anchoCirculo = $(this).width();
+			$(this).height(anchoCirculo);
+			$(this).find('p').css('line-height', anchoCirculo + 'px');
+			$(this).find('i').css('line-height', anchoCirculo + 'px');
+		});
 
-			$.map(data, function (attr) {
-				result[attr.name] = attr.value;
+		var $window = $(window),
+        previousDimensions = {
+            width: $window.width(),
+            height: $window.height()
+        };
+
+	    $('.card').each( function(){
+			var altoCard = $(this).height();
+			$(this).height(altoCard);
+		});
+
+	    $( window ).resize(function() {
+
+	    	$('.circulo').each( function(){
+				var anchoCirculo = $(this).width();
+				$(this).height(anchoCirculo);
+				$(this).find('p').css('line-height', anchoCirculo + 'px');
+				$(this).find('i').css('line-height', anchoCirculo + 'px');
 			});
-			return result;
-		}
+
+			var newDimensions = {
+	            width: $window.width(),
+	            height: $window.height()
+	        };
+
+	        if (newDimensions.width > previousDimensions.width) { // scaling up
+
+				$('.card').each( function(){
+					var altoCard = $(this).height();
+					$(this).height(altoCard);
+				});
+
+	        } else { // scaling down
+
+	        }
+
+			previousDimensions = newDimensions;
+
+	    });
 
 
 	});
