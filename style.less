@@ -192,7 +192,7 @@ body{ background: #fff; .font; }
 
 .card{ width: 64.4%; margin-top: -14%; margin-left: -33%; .border-radius; background: @gris; position: absolute; top: 50%; left: 50%;
 
-	.content{ width: 83%; height: 100%; padding: @margen; .border-radiuses ( 0, 0, 4px, 4px); background: @claro; float: left;
+	.content{ width: 100%; padding: @margen; .border-radiuses ( 4px, 0, 0, 4px); background: @claro; float: left;
 
 		.posicion{ width: 12%; float: left; background: @highlight; }
 
@@ -202,17 +202,17 @@ body{ background: #fff; .font; }
 
 	}
 
-	.sidebar{ width: 17%; padding: @margen; .border-radiuses ( 4px, 4px, 0, 0 ); background: @gris; float: left; }
+	.sidebar{ width: 100%; padding: @margen; .border-radiuses ( 0, 4px, 4px, 0 ); background: @gris; float: left; }
 
 }
 
-.circulo{ width: 100%; .border-radius(50%);
+.circulo{ width: 12%; .border-radius(50%); float: left;
 
 	&.posicion{
 		p{ margin: 0; font-size: 2em; font-weight: 600; text-align: center; color: @claro; }
 	}
 
-	&.autor, &.votos, &.votar{ border: 1px solid @claro; margin: 0 auto @margen auto; }
+	&.autor, &.votos, &.votar{ border: 1px solid @claro; margin: 0 10%; }
 
 	&.autor{
 		img{ display: block; width: 90%; height: auto; margin: 5% auto 0 auto; border-radius: (50%); }
