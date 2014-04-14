@@ -29,46 +29,18 @@
 			var anchoCirculo = $(this).width();
 			$(this).height(anchoCirculo);
 			$(this).find('p').css('line-height', anchoCirculo + 'px');
-			$(this).find('i').css('line-height', anchoCirculo + 'px');
+			$(this).find('i').css('line-height', anchoCirculo + 4 + 'px');
 		});
 
-		var $window = $(window),
-        previousDimensions = {
-            width: $window.width(),
-            height: $window.height()
-        };
-
-	    $('.card').each( function(){
-			var altoCard = $(this).height();
-			$(this).height(altoCard);
-		});
-
+		//RESIZE
 	    $( window ).resize(function() {
 
 	    	$('.circulo').each( function(){
 				var anchoCirculo = $(this).width();
 				$(this).height(anchoCirculo);
 				$(this).find('p').css('line-height', anchoCirculo + 'px');
-				$(this).find('i').css('line-height', anchoCirculo + 'px');
+				$(this).find('i').css('line-height', anchoCirculo + 4 + 'px');
 			});
-
-			var newDimensions = {
-	            width: $window.width(),
-	            height: $window.height()
-	        };
-
-	        if (newDimensions.width > previousDimensions.width) { // scaling up
-
-				$('.card').each( function(){
-					var altoCard = $(this).height();
-					$(this).height(altoCard);
-				});
-
-	        } else { // scaling down
-
-	        }
-
-			previousDimensions = newDimensions;
 
 	    });
 

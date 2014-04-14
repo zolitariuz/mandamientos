@@ -107,6 +107,18 @@ figure {margin: 0;}
   -o-transition:      @transition;
 }
 
+.scale (@factor) {
+	-webkit-transform: scale(@factor);
+	-moz-transform: 	 scale(@factor);
+	-ms-transform: 		 scale(@factor);
+	-o-transform: 		 scale(@factor);
+}
+
+.box-shadow (@string) {
+	-webkit-box-shadow: @string;
+	-moz-box-shadow:    @string;
+	box-shadow:         @string;
+}
 
 /*** FRAMEWORK ***/
 
@@ -190,7 +202,7 @@ p{ margin-bottom: 1em; }
 
 body{ background: #fff; .font; }
 
-.card{ width: 64.4%; margin-top: -14%; margin-left: -33%; .border-radius; background: @gris; position: absolute; top: 50%; left: 50%;
+.card{ width: 56.1%; margin-top: -14%; margin-left: -28%; .border-radius; background: @gris; .box-shadow(0px 1px 2px 2px rgba(10, 10, 10, 0.3) ); position: absolute; top: 50%; left: 50%;
 
 	.content{ width: 100%; padding: @margen; .border-radiuses ( 4px, 0, 0, 4px); background: @claro; float: left;
 
@@ -202,29 +214,37 @@ body{ background: #fff; .font; }
 
 	}
 
-	.sidebar{ width: 100%; padding: @margen; .border-radiuses ( 0, 4px, 4px, 0 ); background: @gris; float: left; }
+	.sidebar{ width: 100%; padding: (@margen/2) @margen; .border-radiuses ( 0, 4px, 4px, 0 ); background: @gris; float: left; }
 
 }
 
-.circulo{ width: 12%; .border-radius(50%); float: left;
+.circulo{ width: 10%; .border-radius(50%); .transition;
 
-	&.posicion{
+	&.posicion{ float: left;
 		p{ margin: 0; font-size: 2em; font-weight: 600; text-align: center; color: @claro; }
 	}
 
-	&.autor, &.votos, &.votar{ border: 1px solid @claro; margin: 0 10%; }
+	&.autor, &.votos, &.votar{ border: 1px solid @claro; margin-left: 5%; .transition; cursor: pointer; float: right;
+		&:hover{ background: @claro; }
+	}
 
 	&.autor{
 		img{ display: block; width: 90%; height: auto; margin: 5% auto 0 auto; border-radius: (50%); }
 	}
 
 	&.votos{
-		p{ margin: 0; font-size: 1.6em; font-weight: 600; text-align: center; color: @claro; }
+		p{ margin: 0; font-size: 1.6em; font-weight: 600; text-align: center; color: @claro; .transition;
+			&:hover{ color: @highlight; }
+		}
 	}
 
 	&.votar{
-		i{ width: 100%; font-size: 1.3em; text-align: center; color: @claro; }
+		i{ width: 100%; font-size: 1.3em; text-align: center; color: @claro; .transition;
+			&:hover{ color: #e74c3c; }
+		}
 	}
+
+	&:hover{ .scale(1.1); }
 
 }
 
